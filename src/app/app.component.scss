@@ -1,0 +1,14 @@
+.post-item {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  max-width: 400px;
+  margin: 10px;
+  border-radius: 10px;
+}
+.post-item .icon {
+  cursor: pointer;
+}
+.red {
+  color: red;
+}
