@@ -1,16 +1,17 @@
 const express = require('express');
+const mongoose = require('mongoose');
+const path = require('path');
+const api = require('./server/api');
+
 const app = express();
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'dist')));
+app.use('/api', api);
 
-const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/readingit', { useNewUrlParser: true });
 
-const path = require('path');
 
-const api = require('./server/api');
-
-app.use('/api', api);
 app.get('*', (req, res) => {
   res.sendfile(path.join(__dirname, 'dist/index.html'))
 });

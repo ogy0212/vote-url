@@ -33,26 +33,26 @@ router.put('/posts/:id/upvote', (req, res) => {
     if(!record) {
       return res.status(404).send('not found');
     }
-    req.votes = rec.votes++;
+    record.votes = record.votes + 1;
     record.save();
     res.send(record);
   })
 })
 router.put('/posts/:id/downvote', (req, res) => {
-  Post.deleteOne({_id: req.params.id}, (err, record) => {
+  Post.findById({_id: req.params.id}, (err, record) => {
     if(err) {
       return res.status(400).send('internal error');
     }
     if(!record) {
       return res.status(404).send('not found');
     }
-    req.votes = rec.votes--;
+    record.votes = record.votes - 1;
     record.save();
     res.send(record);
   })
 })
 router.delete('/posts/:id', (req, res) => {
-  Post.findById(req.params.id, (err, record) => {
+  Post.deleteOne({_id: req.params.id}, (err, record) => {
     if(err) {
       return res.status(400).send('internal error');
     }
