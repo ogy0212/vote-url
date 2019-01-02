@@ -3,6 +3,11 @@ const mongoose = require('mongoose');
 const router = express.Router();
 const Post = require('./models/post');
 
+router.use((req, res, next) => {
+  console.log(`Time:${Date.now()}, Method:${req.method}, Path:${req.path}`);
+  next();
+})
+
 router.get('/posts', (req, res) => {
   Post.find().then(records => {
     if(records) {
