@@ -42,12 +42,13 @@ export class AppComponent implements OnInit {
     //   url: 'https://twitter.com',
     //   votes: 38
     // }];
-    this.sortPosts();
+    // this.sortPosts();
   }
 
   ngOnInit() {
     this.postsService.getAllPosts().subscribe((data: Post[]) => {
       this.postList = data;
+      this.sortPosts();
     });
   }
 

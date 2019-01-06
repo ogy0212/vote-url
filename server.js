@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 app.use('/api', api);
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/readingit', { useNewUrlParser: true });
+mongoose.connect('mongodb://ogy:ogy@localhost:27017/readingit', { useNewUrlParser: true });
 
 
 app.get('*', (req, res) => {
