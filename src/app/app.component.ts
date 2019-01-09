@@ -20,30 +20,7 @@ export class AppComponent implements OnInit {
     votes: 0
   };
   postList: Post[];
-  constructor(private postsService: PostsService) {
-    // this.postList = [{
-    //   _id: 1,
-    //   title: 'yahoo',
-    //   url: 'https://www.yahoo.co.jp/',
-    //   votes: 85
-    // }, {
-    //   _id: 2,
-    //   title: 'google',
-    //   url: 'https://www.bing.com/',
-    //   votes: 93
-    // }, {
-    //   _id: 3,
-    //   title: 'bing',
-    //   url: 'https://www.bing.com/',
-    //   votes: 38
-    // }, {
-    //   _id: 4,
-    //   title: 'twitter',
-    //   url: 'https://twitter.com',
-    //   votes: 38
-    // }];
-    // this.sortPosts();
-  }
+  constructor(private postsService: PostsService) {}
 
   ngOnInit() {
     this.postsService.getAllPosts().subscribe((data: Post[]) => {
